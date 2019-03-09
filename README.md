@@ -30,16 +30,19 @@ to implement these algorithms.
 ### What data structures did you use and why? How are you representing your graph?
 The overall data structure I am using to represent the weighted graph is a nested dictionary. To represent the minimum spanning tree I used a nested dictionary of tuples. See below:
 
+```
+Weighted Graph (input) = {vertex 1: {vertex 2: weight}}
 
-| Weighted Graph (input)     | Min Span Tree (output)   |
-| -------------------------- |:------------------------:|
-| {vertex 1:                 | right-aligned            | 
-          {vertex2: weight}}  fldsk 
+Min Span Tree (output) = {vertex 1: { vertex 2: (weight, cumulative weight)}}
 ```
-Weighted Graph (input)
-{vertex 1: 
-         {vertex 2: weight}}
-```
+Another data structure used in aid of implementation were a visited list ```Vr = []```
 
 ### Did you run into any difficulties with the implementation?
+I ran into difficulties implementing Kruskals mostly due to poor design from the beginning. Originally I was just planning on implementing Prims so I decided to have a global module that will hold the different data structures instead of creating individual objects for the graphs. 
+
 ### Example outputs from your testing as well as the results from the graph in city-pairs.txt file.
+To run the test program execute the following commands:
+```
+$ cd Prims-and-Kruskals
+$ python3 test.py
+```
