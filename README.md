@@ -6,12 +6,15 @@ Algorithms project exploring MST algorithms
 Main Program
 $ git clone https://github.com/Aly-Tomato/Prims-and-Kruskals.git  
 $ cd Prims-and-Kruskals
-$ python3 main.py
+$ python3 main.py "city_pairs.txt" p
 
 To run test program
 $python3 test.py
 ```
 Or, download with the links above.  
+Note: Upon submission, Kruskal's algorithm has not yet been fully implemented. Therefore ```python3 main.py "city_pairs.txt" k``` 
+will result in errors. Due to interest of time and satisfying responsibilities in other courses I do plan to finish implementing
+Kruskal's after the term is over.
 
 ## Project Write Up  
 
