@@ -38,7 +38,7 @@ Min Span Tree (output) = {vertex 1: { vertex 2: (weight, cumulative weight)}}
 Another data structure used in aid of implementation were a visited list ```Vr = []```
 
 ### Did you run into any difficulties with the implementation?
-I ran into difficulties implementing Kruskals mostly due to poor design from the beginning. Originally I was just planning on implementing Prims so I decided to have a global module that will hold the different data structures instead of creating individual objects for the graphs. This proved difficult as many (if not all) of the algorithms I studied on Kruskal's requires an Object Oriented approach which is not what I've done with Prims. 
+I ran into difficulties implementing Kruskals mostly due to poor design from the beginning. Originally I was just planning on implementing Prims so I decided to have a global module that will hold the different data structures instead of creating individual objects for the graphs. This proved difficult as many (if not all) of the algorithms I studied on Kruskal's requires an Object Oriented approach which is not what I've done with Prims. Because of these difficulties I've decided to shift my focus on implementing Kruskal's to developing a good test program. 
 
 ### Example outputs from your testing as well as the results from the graph in city-pairs.txt file.
 To run the test program execute the following commands:
@@ -47,4 +47,4 @@ $ cd Prims-and-Kruskals
 $ python3 test.py
 ```
 This test program will execute unit tests on the following methods in prims.py ```read_graph(), get_min(), prims()```.
-Once executed the test will output if these test PASSED of FAILED including an expected/responded message for errors.
+Once executed the test will output if these test PASSED or FAILED including an expected/responded message for errors.
