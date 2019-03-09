@@ -3,21 +3,21 @@ import kruskals
 import prims
 
 def usage():
-    print("USAGE: main.py [\"file.txt\"] [\'algo\'] where p = prims , k = kruskals")
+    print("USAGE: main.py [\"file.txt\"] [algo] where p = prims , k = kruskals")
     sys.exit()
 
 def main():
+    if len(sys.argv) < 3:
+        usage()
     file = sys.argv[1]
     delimiter = ' '
-
-    if len(sys.argv) < 2:
-        usage()
-    if(sys.argv[2] == "p"):
+    algo = sys.argv[2]
+    if(algo == 'p'):
         #prims
         prims.read_graph(file, delimiter)
         prims.prims()
         prims.print_pretty()
-    elif(sys.argv[2] == "k"):
+    elif(algo == 'k'):
         #kruskals
         kruskals.read_graph(file, delimiter)
         kruskals.kruskals()
