@@ -1,5 +1,8 @@
 import sys
 import heapq
+import glb
+
+#note: this algorithm assumes graph has unique weights. No two weights are the same
 
 def read_graph(file, d):
     file_path = open(file)
@@ -8,20 +11,27 @@ def read_graph(file, d):
         e1 = line[0]
         e2 = line[1]
         weight = line[2]
-        if weight in wgraph.keys():
-            wgraph[weight][e1] = e2
-        else:
-            wgraph[weight] = {}
-            wgraph[weight][e1] = e2
-    return wgraph
+        if weight not in glb.WGRAPH.keys():
+            glb.WGRAPH[weight] = (e1, e2)
+    return glb.WGRAPH
 
-def kruskals(wgraph):
+def make_set(x):
+    if x not in glb.DSET:
+        glb.DSET.union(x)
+
+def find(i):
+    if(glb.PARENT[i] == i):
+        return i
+    return find(glb.PARENT[i])
+
+def kruskals():
     edges = []
-    for e in wgraph:
-        heapq.heappush(edges, e)
-    print(edges)
-
-
+    for e in glb.WGRAPH:
+        v1,v2 = glb.WGRAPH[e]
+        heapq.heappush(edges, (int(e),v1,v2))
+    while(edges):
+        e,v1,v2 = heapq.heappop(edges)
+        glb.PARENT.append(int(e))
 
 def main():
     if len(sys.argv) < 2:
