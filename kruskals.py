@@ -44,3 +44,4 @@ def kruskals():
             union(v1, v2)
             cdist += e
             glb.MST.append((v1, v2, str(e), str(cdist)))
+    return glb.MST

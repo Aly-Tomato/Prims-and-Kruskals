@@ -21,12 +21,13 @@ def test_read (file, delimiter, algo):
         print(f"Responded: {respKeys}")
         return False
     #check neighbors do not include key value
-    for k in keys:
-        if k in glb.WGRAPH[k]:
-            print("ERROR:\t Key neighbors have same values as Key")
-            print(f"Expected:  Key = {k}, graph[Key] != Key")
-            print(f"Responded: {glb.WGRAPH[k]}")
-            return False
+    if(algo == 'p'):
+        for k in keys:
+            if k in glb.WGRAPH[k]:
+                print("ERROR:\t Key neighbors have same values as Key")
+                print(f"Expected:  Key = {k}, graph[Key] != Key")
+                print(f"Responded: {glb.WGRAPH[k]}")
+                return False
     return True
 
 def test_getmin():
@@ -41,7 +42,7 @@ def test_getmin():
         print(f"Responded: {responded}")
         return False
 
-def test_prims(algo):
+def test_algo(algo):
     if(algo == 'k'):
         algo = 'kruskals'
         responded = kruskals.kruskals()
@@ -81,7 +82,7 @@ def main():
        else:
            print("prims.get_min() : FAIL")
 
-       if test_prims():
+       if test_algo():
            print("prims.prims() : PASS")
        else:
            print("prims.prims() : FAIL")
@@ -89,9 +90,13 @@ def main():
    if(algo == 'k'):
        print("....TESTING KRUSKALS....")
        if test_read(file,delimiter,algo):
-           print("prims.read_graph() : PASS")
+           print("kruskals.read_graph() : PASS")
        else:
-           print("prims.read_graph() : FAIL")
+           print("kruskals.read_graph() : FAIL")
+       if test_algo(algo):
+           print("kruskals.kruskals() : PASS")
+       else:
+           print("kruskals.kruskals() : FAIL")
    else:
        usage()
 
