@@ -82,12 +82,12 @@ def main():
        else:
            print("prims.get_min() : FAIL")
 
-       if test_algo():
+       if test_algo(algo):
            print("prims.prims() : PASS")
        else:
            print("prims.prims() : FAIL")
 
-   if(algo == 'k'):
+   elif(algo == 'k'):
        print("....TESTING KRUSKALS....")
        if test_read(file,delimiter,algo):
            print("kruskals.read_graph() : PASS")
