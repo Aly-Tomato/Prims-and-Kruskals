@@ -95,7 +95,8 @@ mapped to a specific point in the aforementioned dictionaries.
 
 ### Example outputs from your testing as well as the results from the graph in city-pairs.txt file.
 To run the test suite execute the following commands seen in section **_Usage_**
-This test program will execute unit tests on the following methods in prims.py ```read_graph(), get_min(), prims()```.
+This test program will execute unit tests on the following methods in prims.py ```read_graph(), get_min(), prims()```
+and in kruskals.py ```read_graph() and kruskals()```.
 Once executed the test will output if these test PASSED or FAILED including an expected/responded message for errors.
 The test suite uses a smaller sample of data in it's weight graph found in _sample_data.txt_.
 Below are screenshots of the outputs of the prims algorithm and the test suite on 
