@@ -3,9 +3,10 @@
 Vr = [] #visited list
 WGRAPH = {} #weighted graph
 MST = [] #min spanning tree edge list
-DSET = set()
 PARENT = {}
 RANK = {}
+EDGES = []
+VERTICES = set()
 
 def print_pretty():
     t1 = "Vertex 1"

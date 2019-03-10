@@ -57,6 +57,7 @@ Visited Vertices = []
 
 # Kruskals
 Parent = {vertex 1: vertex 2, vertex 3: vertex 4}
+Vertices = set(vertex 1, vertex 2, ... , vertex n)
 ```
 
 ### Did you run into any difficulties with the implementation?

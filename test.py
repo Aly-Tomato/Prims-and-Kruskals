@@ -1,5 +1,3 @@
-#test prims methods
-
 import prims
 import kruskals
 import glb

@@ -1,18 +1,19 @@
 import heapq
 import glb
 
-#note: this algorithm assumes graph has unique weights. No two weights are the same
-
 def read_graph(file, d):
     file_path = open(file)
     for lines in file_path:
         line = [x.strip() for x in lines.split(f'{d}')]
-        e1 = line[0]
-        e2 = line[1]
+        v1 = line[0]
+        v2 = line[1]
         weight = line[2]
-        if weight not in glb.WGRAPH.keys():
-            glb.WGRAPH[weight] = (e1, e2)
-    return glb.WGRAPH
+        if((int(weight),v2,v1) in glb.EDGES): #maintain edge as set
+            continue
+        heapq.heappush(glb.EDGES, (int(weight),v1,v2))
+        glb.VERTICES.add(v1)
+        glb.VERTICES.add(v2)
+    return glb.EDGES
 
 def make_set(v):
      glb.PARENT[v] = v
@@ -29,24 +30,16 @@ def union(v1, v2):
     if(root1 != root2):
         if(glb.RANK[root1] > glb.RANK[root2]):
             glb.PARENT[root2] = root1
-        elif(glb.RANK[root1] < glb.RANK[root2]):
-            glb.PARENT[root1] = root2
         else:
+            glb.PARENT[root1] = root2
             glb.RANK[root2] += 1
 
 def kruskals():
-    edges = []
-    vertices = set()
     cdist = 0
-    for e in glb.WGRAPH:
-        v1, v2 = glb.WGRAPH[e]
-        heapq.heappush(edges, (int(e),v1,v2))
-        vertices.add(v1)
-        vertices.add(v2)
-    for v in vertices:
+    for v in glb.VERTICES:
         make_set(v)
-    while(edges):
-        e,v1,v2 = heapq.heappop(edges)
+    while(glb.EDGES):
+        e,v1,v2 = heapq.heappop(glb.EDGES)
         if(find(v1) != find(v2)):
             union(v1, v2)
             cdist += e
