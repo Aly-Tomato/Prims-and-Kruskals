@@ -101,4 +101,4 @@ Once executed the test will output if these test PASSED or FAILED including an e
 The test suite uses a smaller sample of data in it's weight graph found in _sample_data.txt_.
 Below are screenshots of the outputs of the prims algorithm and the test suite on 
 the Prims implementation.
-
+![](/Prims-and-Kruskals/blob/master/prims_citypairs_output.JPG)
