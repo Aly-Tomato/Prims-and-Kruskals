@@ -94,11 +94,20 @@ I created PARENT and RANK dictionaries in my glb "global" module where each vert
 mapped to a specific point in the aforementioned dictionaries.
 
 ### Example outputs from your testing as well as the results from the graph in city-pairs.txt file.
+#### Prims City Pairs Output  
+![](https://github.com/Aly-Tomato/Prims-and-Kruskals/blob/master/prims_citypairs_output.JPG)
+#### Kruskals City Pairs Output  
+![](https://github.com/Aly-Tomato/Prims-and-Kruskals/blob/master/kruskals_citypairs_output.JPG)
+
+#### Test Output
 To run the test suite execute the following commands seen in section **_Usage_**
 This test program will execute unit tests on the following methods in prims.py ```read_graph(), get_min(), prims()```
 and in kruskals.py ```read_graph() and kruskals()```.
 Once executed the test will output if these test PASSED or FAILED including an expected/responded message for errors.
 The test suite uses a smaller sample of data in it's weight graph found in _sample_data.txt_.
 Below are screenshots of the outputs of the prims algorithm and the test suite on 
-the Prims implementation.
-![](https://github.com/Aly-Tomato/Prims-and-Kruskals/blob/master/prims_citypairs_output.JPG)
+the Prims implementation.  
+#### Sample Fail Message
+![](https://github.com/Aly-Tomato/Prims-and-Kruskals/blob/master/sample_fail.JPG)
+#### Passing Tests Output
+![](https://github.com/Aly-Tomato/Prims-and-Kruskals/blob/master/passing_tests.JPG)
