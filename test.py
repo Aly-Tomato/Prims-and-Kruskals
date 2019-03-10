@@ -6,10 +6,13 @@ import sys
 def test_read (file, delimiter, algo):
     if(algo == 'k'):
         glb.WGRAPH = kruskals.read_graph(file, delimiter)
-    if(algo == 'p'):
+        keys = glb.VERTICES
+    elif(algo == 'p'):
         glb.WGRAPH = prims.read_graph(file, delimiter)
+        keys = glb.WGRAPH.keys()
+    else:
+        usage()
     exKeys = 3
-    keys = glb.WGRAPH.keys()
     respKeys = len(keys)
     #check total keys
     if(respKeys != exKeys):
@@ -38,14 +41,19 @@ def test_getmin():
         print(f"Responded: {responded}")
         return False
 
-def test_prims():
-    glb.Vr.clear()
-    responded = prims.prims()
+def test_prims(algo):
+    if(algo == 'k'):
+        algo = 'kruskals'
+        responded = kruskals.kruskals()
+    if(algo == 'p'):
+        algo = 'prims'
+        glb.Vr.clear()
+        responded = prims.prims()
     expected = [('a', 'b', '1', '1'), ('a', 'c', '2', '3')]
     if(expected == responded):
         return True
     else:
-        print("ERROR:\t prims.prims returned unexpected MST")
+        print(f"ERROR:\t {algo}.{algo} returned unexpected MST")
         print(f"Expected:  {expected}")
         print(f"Responded: {responded}")
 
@@ -77,6 +85,7 @@ def main():
            print("prims.prims() : PASS")
        else:
            print("prims.prims() : FAIL")
+
    if(algo == 'k'):
        print("....TESTING KRUSKALS....")
        if test_read(file,delimiter,algo):

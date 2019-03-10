@@ -68,15 +68,22 @@ data structures instead of thinking of the graph as an object itself.
 This proved difficult as many of the algorithms I studied on Kruskal's 
 required an Object Oriented approach which is not what I started with Prims. 
 To be honest, I'm rather embarassed that I didn't take an object oriented approach
-with Prims and if given the opportunity to do it again I would. So how did I work
-around this in Kruskals? Instead of each vertice having parent nodes and a rank
-I created PARENT and RANK dictionaries in my glb "global" module.
+with Prims and if given the opportunity to do it again I would. Because of my last
+minute decision to attempt a Kruskal implementation I missed out on utilizing
+polymorphism in designing the test suite and related methods such as reading in the graph
+printing the graph and etc. 
+So how did I work around this in Kruskals? I relied on my global module to help 
+organize the two separate algorithms. Instead of each vertice having parent nodes and a rank
+I created PARENT and RANK dictionaries in my glb "global" module where each vertice
+mapped to a specific point in the aforementioned dictionaries.
 
 ### Example outputs from your testing as well as the results from the graph in city-pairs.txt file.
 To run the test suite execute the following commands:
 ```
+python3 test.py {algo}, where p = prims and k = kruskals
+
 $ cd Prims-and-Kruskals
-$ python3 test.py
+$ python3 test.py k 
 ```
 This test program will execute unit tests on the following methods in prims.py ```read_graph(), get_min(), prims()```.
 Once executed the test will output if these test PASSED or FAILED including an expected/responded message for errors.
