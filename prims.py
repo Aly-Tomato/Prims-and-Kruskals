@@ -56,5 +56,5 @@ def prims():
         #add v to MST
         glb.MST.append((v,v2,str(edist),str(cdist)))
         add_visited(v2)
-    return glb.MST
+    return (glb.MST,cdist)
 

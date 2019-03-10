@@ -16,13 +16,15 @@ def main():
     if(algo == 'p'):
         #prims
         prims.read_graph(file, delimiter)
-        prims.prims()
+        graph,tdist = prims.prims()
         glb.print_pretty()
+        print(f"Total Distance : {tdist}")
     elif(algo == 'k'):
         #kruskals
         kruskals.read_graph(file, delimiter)
-        kruskals.kruskals()
+        graph,tdist = kruskals.kruskals()
         glb.print_pretty()
+        print(f"Total Distance : {tdist}")
     else:
         usage()
 

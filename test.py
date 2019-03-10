@@ -45,18 +45,25 @@ def test_getmin():
 def test_algo(algo):
     if(algo == 'k'):
         algo = 'kruskals'
-        responded = kruskals.kruskals()
+        responded,cdist = kruskals.kruskals()
     if(algo == 'p'):
         algo = 'prims'
         glb.Vr.clear()
-        responded = prims.prims()
+        responded,cdist = prims.prims()
     expected = [('a', 'b', '1', '1'), ('a', 'c', '2', '3')]
+    expcdist = 4
     if(expected == responded):
         return True
     else:
         print(f"ERROR:\t {algo}.{algo} returned unexpected MST")
         print(f"Expected:  {expected}")
         print(f"Responded: {responded}")
+    if(cdist == expcdist):
+        return True
+    else:
+        print(f"ERROR:\t {algo}.{algo} returned incorrect cumulative distance")
+        print(f"Expected:  {expcdist}")
+        print(f"Responded: {cdist}")
 
 def usage():
     print("USAGE: test.py [algo] where p = prims , k = kruskals")
