@@ -1,6 +1,7 @@
 import sys
 import kruskals
 import prims
+import glb
 
 def usage():
     print("USAGE: main.py [\"file.txt\"] [algo] where p = prims , k = kruskals")
@@ -16,11 +17,12 @@ def main():
         #prims
         prims.read_graph(file, delimiter)
         prims.prims()
-        prims.print_pretty()
+        glb.print_pretty()
     elif(algo == 'k'):
         #kruskals
         kruskals.read_graph(file, delimiter)
         kruskals.kruskals()
+        glb.print_pretty()
     else:
         usage()
 

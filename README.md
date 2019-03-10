@@ -1,5 +1,5 @@
 # Prims-and-Kruskals
-Algorithms project exploring MST algorithms
+Algorithms project exploring MST algorithms.
 
 ## Usage  
 Download with the links above or,  
@@ -11,13 +11,9 @@ $ python3 main.py "{file_name.txt}" 'algo' where p = Prims and k = Kruskals
 
 examples:
 $ python3 main.py "city_pairs.txt" p  #executes prims algorithm
+$ python3 main.py "city_pairs.txt" k  #executes kruskals algorithm
 $ python3 test.py "executes test suite"
 ```
-
-Note: Upon submission, Kruskal's algorithm has not yet been fully implemented. Therefore ```python3 main.py "city_pairs.txt" k``` 
-will result in errors. Due to interest of time and satisfying responsibilities in other courses I do plan to finish implementing
-Kruskal's after the term is over.
-
 
 ## Project Write Up  
 
@@ -46,20 +42,37 @@ More about data structures below. Mainly, Python is just so much fun!
 
 
 ### What data structures did you use and why? How are you representing your graph?
-The overall data structure I am using to represent the weighted graph is a nested dictionary. To represent the minimum spanning tree I used a nested dictionary of tuples. See below:
+The overall data structure I am using to represent the weighted graph is a nested dictionary. 
+To represent the minimum spanning tree I used a nested dictionary of tuples. In Prims
+I represented the visited vertices in a list and in Kruskals I represented parent nodes
+and ranks in a dictionary. I explain these choices in later paragraphs. 
+See below:
 
 ```
 Weighted Graph (input) = {vertex 1: {vertex 2: weight}}
-
 Min Span Tree (output) = {vertex 1: { vertex 2: (weight, cumulative weight)}}
+
+# Prims
+Visited Vertices = []
+
+# Kruskals
+Parent = {vertex 1: vertex 2, vertex 3: vertex 4}
 ```
-Another data structure used in aid of implementation were a visited list ```Vr = []```
 
 ### Did you run into any difficulties with the implementation?
-I ran into difficulties implementing Kruskals mostly due to poor design from the beginning. Originally I was just planning on implementing Prims so I decided to have a global module that will hold the different data structures instead of creating individual objects for the graphs. This proved difficult as many (if not all) of the algorithms I studied on Kruskal's requires an Object Oriented approach which is not what I've done with Prims. Because of these difficulties I've decided to shift my focus on implementing Kruskal's to developing a good test program. 
+I ran into difficulties implementing Kruskals mostly due to poor design 
+choices from the beginning. Originally I was intending on only implementing 
+Prims algorithm so I decided to have a global module that would hold the different 
+data structures instead of thinking of the graph as an object itself. 
+This proved difficult as many of the algorithms I studied on Kruskal's 
+required an Object Oriented approach which is not what I started with Prims. 
+To be honest, I'm rather embarassed that I didn't take an object oriented approach
+with Prims and if given the opportunity to do it again I would. So how did I work
+around this in Kruskals? Instead of each vertice having parent nodes and a rank
+I created PARENT and RANK dictionaries in my glb "global" module.
 
 ### Example outputs from your testing as well as the results from the graph in city-pairs.txt file.
-To run the test program execute the following commands:
+To run the test suite execute the following commands:
 ```
 $ cd Prims-and-Kruskals
 $ python3 test.py

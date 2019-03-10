@@ -1,11 +1,16 @@
 #test prims methods
 
 import prims
+import kruskals
 import glb
+import sys
 
-def test_read (file, delimiter):
+def test_read (file, delimiter, algo):
+    if(algo == 'k'):
+        glb.WGRAPH = kruskals.read_graph(file, delimiter)
+    if(algo == 'p'):
+        glb.WGRAPH = prims.read_graph(file, delimiter)
     exKeys = 3
-    glb.WGRAPH = prims.read_graph(file, delimiter)
     keys = glb.WGRAPH.keys()
     respKeys = len(keys)
     #check total keys
@@ -46,24 +51,42 @@ def test_prims():
         print(f"Expected:  {expected}")
         print(f"Responded: {responded}")
 
+def usage():
+    print("USAGE: test.py [algo] where p = prims , k = kruskals")
+    print("$ test.py k")
+    sys.exit()
+
 def main():
    file = "sample_data.txt"
    delimiter = ' '
-   print("....TESTING....")
-   if test_read(file,delimiter):
-       print("prims.read_graph() : PASS")
-   else:
-       print("prims.read_graph() : FAIL")
+   if(len(sys.argv) < 2):
+       usage()
+   algo = sys.argv[1]
 
-   if test_getmin():
-       print("prims.get_min() : PASS")
-   else:
-       print("prims.get_min() : FAIL")
+   if(algo == 'p'):
+       print("....TESTING PRIMS....")
+       if test_read(file,delimiter,algo):
+           print("prims.read_graph() : PASS")
+       else:
+           print("prims.read_graph() : FAIL")
 
-   if test_prims():
-       print("prims.prims() : PASS")
+       if test_getmin():
+           print("prims.get_min() : PASS")
+       else:
+           print("prims.get_min() : FAIL")
+
+       if test_prims():
+           print("prims.prims() : PASS")
+       else:
+           print("prims.prims() : FAIL")
+   if(algo == 'k'):
+       print("....TESTING KRUSKALS....")
+       if test_read(file,delimiter,algo):
+           print("prims.read_graph() : PASS")
+       else:
+           print("prims.read_graph() : FAIL")
    else:
-       print("prims.prims() : FAIL")
+       usage()
 
 if __name__ == "__main__":
     main()
