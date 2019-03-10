@@ -95,9 +95,9 @@ mapped to a specific point in the aforementioned dictionaries.
 
 ### Example outputs from your testing as well as the results from the graph in city-pairs.txt file.
 #### Prims City Pairs Output  
-![](/blob/master/prims_citypairs_output.JPG)
+![](https://github.com/Aly-Tomato/Prims-and-Kruskals/blob/master/prims_citypairs_output.JPG)
 #### Kruskals City Pairs Output  
-![](/blob/master/kruskals_citypairs_output.JPG)
+![](https://github.com/Aly-Tomato/Prims-and-Kruskals/blob/master/kruskals_citypairs_output.JPG)
 
 #### Test Output
 To run the test suite execute the following commands seen in section **_Usage_**
@@ -108,6 +108,6 @@ The test suite uses a smaller sample of data in it's weight graph found in _samp
 Below are screenshots of the outputs of the prims algorithm and the test suite on 
 the Prims implementation.  
 #### Sample Fail Message
-![](/blob/master/sample_fail.JPG)
+![](https://github.com/Aly-Tomato/Prims-and-Kruskals/blob/master/sample_fail.JPG)
 #### Passing Tests Output
-![](/blob/master/passing_tests.JPG)
+![](https://github.com/Aly-Tomato/Prims-and-Kruskals/blob/master/passing_tests.JPG)
