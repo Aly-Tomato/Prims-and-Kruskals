@@ -1,8 +1,10 @@
 #module containing global variables
 
-Vr = [] #visited list
 WGRAPH = {} #weighted graph
 MST = [] #min spanning tree edge list
+#prims
+Vr = [] #visited list
+#kruskals
 PARENT = {}
 RANK = {}
 EDGES = []
